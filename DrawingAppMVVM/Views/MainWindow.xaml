@@ -4,21 +4,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-    xmlns:local="clr-namespace:DrawingAppMVVM.ViewModels"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
     Width="800"
     Height="450"
     mc:Ignorable="d">
     <Window.Resources>
-        <Style x:Key="ColorSelector" TargetType="TextBlock">
-            <Setter Property="MinHeight" Value="20" />
-            <Setter Property="MinWidth" Value="20" />
-        </Style>
         <Style x:Key="Icon" TargetType="Image">
             <Setter Property="MaxWidth" Value="25" />
             <Setter Property="MaxHeight" Value="25" />
         </Style>
+
+        <ControlTemplate x:Key="Gay" TargetType="ComboBoxItem">
+            <StackPanel>
+                <TextBlock FontSize="20" Foreground="{Binding}" Text="Color" />
+            </StackPanel>
+        </ControlTemplate>
+
     </Window.Resources>
 
     <DockPanel>
@@ -27,9 +29,9 @@
                 <WrapPanel>
                     <WrapPanel>
                         <Button>
-                            <Image Source="C:\Users\29166.DESKTOP-3A4STP9\source\repos\WPF Learning\DrawingAppMVVM\DrawingAppMVVM\Images\color_wheel.png" Style="{StaticResource Icon}" />
+                            <Image Source="C:\Users\29166.DESKTOP-3A4STP9\source\repos\WPF Learning\DrawingAppMVVM\DrawingAppMVVM\Images\colorWheel.png" Style="{StaticResource Icon}" />
                         </Button>
-                        <ComboBox x:Name="ColorsList" MaxWidth="15" ItemsSource="{Binding PaintColorsModel.AvailableColors}" SelectedItem="{Binding PaintColorsModel.SelectedColor}">
+                        <ComboBox MaxWidth="15" ItemsSource="{Binding CanvasModel.AvailableColors}" SelectedItem="{Binding CanvasModel.SelectedColor}">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="SelectionChanged">
                                     <i:InvokeCommandAction Command="{Binding ChangeBrushColor}" />
@@ -38,7 +40,7 @@
 
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel Focusable="False" IsHitTestVisible="False">
+                                    <StackPanel>
                                         <TextBlock FontSize="20" Foreground="{Binding}" Text="Color" />
                                     </StackPanel>
                                 </DataTemplate>
@@ -47,28 +49,29 @@
                     </WrapPanel>
 
                     <WrapPanel Margin="10,0,0,0">
-                        <!--<TextBlock FontSize="20" Text="Size:" />
-                        <TextBox
-                            x:Name="BrushSize"
-                            Margin="5,0,0,0"
-                            FontSize="20"
-                            PreviewTextInput="NumberValidationTextBox"
-                            Text="1">
+                        <Button>
+                            <Image Source="C:\Users\29166.DESKTOP-3A4STP9\source\repos\WPF Learning\DrawingAppMVVM\DrawingAppMVVM\Images\lineThickness.png" Style="{StaticResource Icon}" />
+                        </Button>
+                        <ComboBox MaxWidth="15" ItemsSource="{Binding CanvasModel.AvailableBrushSizes}" SelectedItem="{Binding CanvasModel.SelectedBrushSize}">
                             <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="TextChanged">
-                                    <i:InvokeCommandAction Command="{Binding ChangeBrushSize}" CommandParameter="{Binding ElementName=BrushSize, Path=Text}" />
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding ChangeBrushSize}" />
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
-                        </TextBox>-->
-                        <Button>
-                            <Image Source="C:\Users\29166.DESKTOP-3A4STP9\source\repos\WPF Learning\DrawingAppMVVM\DrawingAppMVVM\Images\line-thickness icon.png" Style="{StaticResource Icon}" />
-                        </Button>
-                        <ComboBox MaxWidth="15" />
+
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock FontSize="20" Text="{Binding}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </WrapPanel>
                 </WrapPanel>
 
-                <Button Margin="0,0,5,0" HorizontalAlignment="Right" Command="{Binding ClearCanvas}" FontSize="15">
-                    <Image Source="C:\Users\29166.DESKTOP-3A4STP9\source\repos\WPF Learning\DrawingAppMVVM\DrawingAppMVVM\Images\bin icon.png" Style="{StaticResource Icon}" />
+                <Button Margin="0,0,5,0" HorizontalAlignment="Right" Command="{Binding ClearCanvas}">
+                    <Image Source="C:\Users\29166.DESKTOP-3A4STP9\source\repos\WPF Learning\DrawingAppMVVM\DrawingAppMVVM\Images\binIcon.png" Style="{StaticResource Icon}" />
                 </Button>
             </DockPanel>
         </Border>

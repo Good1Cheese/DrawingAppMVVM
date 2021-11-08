@@ -2,10 +2,9 @@
 
 namespace DrawingAppMVVM.Models
 {
-    public class PaintColorsModel
+    public class CanvasModel
     {
-
-        public PaintColorsModel()
+        public CanvasModel()
         {
             AvailableColors = new SolidColorBrush[]
             {
@@ -13,9 +12,20 @@ namespace DrawingAppMVVM.Models
                 new SolidColorBrush(Colors.Blue),
                 new SolidColorBrush(Colors.Black)
             };
+
+            AvailableBrushSizes = new int[]
+            {
+                1,
+                2,
+                3,
+                4,
+                5
+            };
         }
 
         public SolidColorBrush SelectedColor { get; set; }
         public SolidColorBrush[] AvailableColors { get; set; }
+        public int SelectedBrushSize { get; set; }
+        public int[] AvailableBrushSizes { get; set; }
     }
 }

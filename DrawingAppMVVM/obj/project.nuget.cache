@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "8r05pRMcnD8ji00a/rmx4N5D9WuhkSZGC8ROjSdesFVvEX9MyH1XvlhXCOjcWDg/QpIyaIlwyOEYbOu3+aKlrw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\29166.DESKTOP-3A4STP9\\source\\repos\\WPF Learning\\DrawingAppMVVM\\DrawingAppMVVM\\DrawingAppMVVM.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\29166.DESKTOP-3A4STP9\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.37\\microsoft.xaml.behaviors.wpf.1.1.37.nupkg.sha512"
+  ],
+  "logs": []
+}
