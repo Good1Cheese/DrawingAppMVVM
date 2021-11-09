@@ -10,16 +10,11 @@
     Height="450"
     mc:Ignorable="d">
     <Window.Resources>
+
         <Style x:Key="Icon" TargetType="Image">
             <Setter Property="MaxWidth" Value="25" />
             <Setter Property="MaxHeight" Value="25" />
         </Style>
-
-        <ControlTemplate x:Key="Gay" TargetType="ComboBoxItem">
-            <StackPanel>
-                <TextBlock FontSize="20" Foreground="{Binding}" Text="Color" />
-            </StackPanel>
-        </ControlTemplate>
 
     </Window.Resources>
 
